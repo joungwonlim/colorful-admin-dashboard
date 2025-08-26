@@ -3,6 +3,8 @@
  * 모든 데이터 모델과 인터페이스를 정의합니다.
  */
 
+import React from 'react'
+
 // KPI 데이터 모델
 export interface KPIData {
   id: string
@@ -39,7 +41,7 @@ export interface TableRow {
   name: string
   status: 'active' | 'inactive' | 'pending'
   createdAt: Date
-  [key: string]: any
+  [key: string]: string | number | Date | boolean
 }
 
 // 테이블 컬럼 정의
@@ -48,7 +50,7 @@ export interface TableColumn {
   title: string
   sortable?: boolean
   width?: string
-  render?: (value: any, row: TableRow) => React.ReactNode
+  render?: (value: string | number | Date | boolean, row: TableRow) => React.ReactNode
 }
 
 // 테이블 설정
